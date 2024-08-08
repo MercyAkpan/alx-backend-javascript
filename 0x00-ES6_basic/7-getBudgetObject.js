@@ -8,5 +8,5 @@ export default function getBudgetObject(income, gdp, capita) {
     //  capita,
     // };
     // returns the entire object
-    return (income, gdp, capita);
+    return { income, gdp, capita };
   }
