@@ -1,5 +1,5 @@
-//This returns a  resolved function, on success, and on failure -- 
-//catches the error and converts it into a rejected promise 
+// This returns a  resolved function, on success, and on failure --
+// catches the error and converts it into a rejected promise
 function getFullResponseFromAPI(success) {
   try {
     if (success) {
