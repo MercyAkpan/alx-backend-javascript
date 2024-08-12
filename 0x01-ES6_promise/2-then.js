@@ -5,7 +5,7 @@ function handleResponseFromAPI(promise) {
     if (promise) {
       return Promise.resolve({ status: 200, body: 'success' });
     }
-    throw new Error('');
+    throw new Error();
   } catch (error) {
     return Promise.reject(error);
   } finally {
