@@ -4,7 +4,8 @@ import uploadPhoto from './5-photo-reject';
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   try {
-    const trial = await Promise.allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
+    const trial = await Promise.allSettled([signUpUser(firstName, lastName),
+      uploadPhoto(fileName)]);
     // console.log(trial);
     // console.log`in here`;
     const formattedResults = trial.map(({ status, value, reason }) => {
@@ -16,15 +17,14 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
             ...value, // Preserve the original resolved value
             firstName,
             lastName,
-        }
-        };
-      } else {
-        // Handle rejected promises
-        return {
-          status,
-          value: `Error: ${reason.message}`,
+          },
         };
       }
+      // Handle rejected promises
+      return {
+        status,
+        value: `Error: ${reason.message}`,
+      };
     });
 
     console.log(formattedResults);
