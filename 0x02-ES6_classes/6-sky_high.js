@@ -1,4 +1,3 @@
-
 import Building from './5-building';
 
 const privateData = new WeakMap();
@@ -54,4 +53,3 @@ export default class SkyHighBuilding extends Building {
     return `Evacuate slowly the ${this.floors} floors`;
   }
 }
-

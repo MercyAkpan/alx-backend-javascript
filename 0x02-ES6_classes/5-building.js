@@ -1,4 +1,3 @@
-
 const privateData = new WeakMap();
 
 /**
@@ -51,4 +50,3 @@ export default class Building {
     this._sqft = sqft;
   }
 }
-
