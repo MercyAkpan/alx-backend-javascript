@@ -5,7 +5,7 @@ function getResponseFromAPI() {
   return result;
 }
 export default getResponseFromAPI;
-// The below returns a promise as well, fetch is not allowed in the test
+// The below returns a promise as well, however fetch is not allowed in the test
 // function getResponseFromAPI(){
 //     const url = `https://jsonplaceholder.typicode.com/todos/1`;
 //     return fetch(url)

@@ -1,15 +1,7 @@
-// This returns a  resolved function, on success, and on failure --
-// catches the error and converts it into a rejected promise
-function handleResponseFromAPI(promise) {
-  try {
-    if (promise) {
-      return Promise.resolve({ status: 200, body: 'success' });
-    }
-    // throw new Error();
-  } catch (error) {
-    return Promise.reject(new Error());
-  } finally {
-    console.log('Got a response from the API');
-  }
+/* eslint-disable */
+export default function handleResponseFromAPI(promise) {
+  return promise
+    .then(() => ({ status: 200, body: 'success' }))
+    .catch(() => new Error())
+    .finally(() => console.log('Got a response from the API'));
 }
-export default handleResponseFromAPI;
