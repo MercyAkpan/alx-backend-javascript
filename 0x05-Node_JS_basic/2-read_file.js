@@ -1,3 +1,7 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
+/* eslint-disable arrow-parens */
+/* eslint-disable guard-for-in */
 const fs = require('fs');
 const path = require('path');
 
