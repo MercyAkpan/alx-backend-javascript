@@ -10,11 +10,10 @@ let inputBuffer = '';
 rl.on('line', (input) => {
     // Store the input in a buffer
     inputBuffer = input;
-    console.log(`Your name is: ${inputBuffer}`);
+    process.stdout.write(`Your name is: ${inputBuffer}\r`);
     rl.close();
   });
 rl.on('close', () => {
     console.log('This important software is now closing');
     process.exit(0);
   });
-  
