@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
+/* eslint-disable guard-for-in */
 const fs = require('fs');
 const path = require('path');
 
@@ -16,11 +19,11 @@ function countStudents(path_name) {
       }
 
       // Split the data into lines and filter out empty lines
-      const lines = data.trim().split('\n').filter(line => line);
+      const lines = data.trim().split('\n').filter((line) => line);
 
       // Get the header and student data
       const header = lines[0].split(',');
-      const students = lines.slice(1).map(line => line.split(','));
+      const students = lines.slice(1).map((line) => line.split(','));
 
       // Total number of students
       const totalStudents = students.length;
@@ -29,7 +32,7 @@ function countStudents(path_name) {
       const fieldCount = {};
 
       // Loop through the student data
-      students.forEach(student => {
+      students.forEach((student) => {
         const field = student[3]; // Field is the fourth column
         const firstName = student[0]; // First name is the first column
 
