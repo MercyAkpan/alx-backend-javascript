@@ -6,11 +6,9 @@ function countStudents(path_name) {
   // Construct the path to the CSV file
   const filePath = path.join(__dirname, path_name); // Use path_name directly
 
-  // Read the file asynchronously
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      throw new Error('Cannot load the database'); // Throw a custom error
-    }
+  try {
+    // Read the file synchronously
+    const data = fs.readFileSync(filePath, 'utf8');
 
     // Split the data into lines and filter out empty lines
     const lines = data.trim().split('\n').filter(line => line);
@@ -48,7 +46,9 @@ function countStudents(path_name) {
       const { count, names } = fieldCount[field];
       process.stdout.write(`Number of students in ${field}: ${count}. List: ${names.join(', ')}\n`);
     }
-  });
+  } catch (err) {
+    throw new Error('Cannot load the database'); // Throw a custom error
+  }
 }
 
 // Export the function
