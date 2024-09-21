@@ -1,6 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
 const fs = require('fs');
 const path = require('path');
 
@@ -16,17 +13,20 @@ function countStudents(path_name) {
     }
 
     // Split the data into lines and filter out empty lines
-    const lines = data.trim().split('\n').filter((line) => line);
+    const lines = data.trim().split('\n').filter(line => line);
 
     // Get the header and student data
-    const header = lines[0].split(','); // Not necessary but kept for clarity
-    const students = lines.slice(1).map((line) => line.split(','));
+    const header = lines[0].split(',');
+    const students = lines.slice(1).map(line => line.split(','));
+
+    // Total number of students
+    const totalStudents = students.length;
 
     // Initialize a field count object
     const fieldCount = {};
 
     // Loop through the student data
-    students.forEach((student) => {
+    students.forEach(student => {
       const field = student[3]; // Field is the fourth column
       const firstName = student[0]; // First name is the first column
 
@@ -40,7 +40,10 @@ function countStudents(path_name) {
       fieldCount[field].names.push(firstName);
     });
 
-    // Output the results
+    // Output total number of students
+    process.stdout.write(`Number of students: ${totalStudents}\n`);
+
+    // Output the results for each field
     for (const field in fieldCount) {
       const { count, names } = fieldCount[field];
       process.stdout.write(`Number of students in ${field}: ${count}. List: ${names.join(', ')}\n`);
