@@ -19,16 +19,13 @@
 const http = require("http");
 
 // Define a function to create and start the server
-const startServer = () => {
-  const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello Holberton School!');
-  });
-  server.listen(1245);
-};
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello Holberton School!');
+});
+server.listen(1245);
 
 // Start the server immediately
-startServer();
-
+// server();
 // Export the function to allow other modules to use it
-module.exports = startServer;
+module.exports = server;
