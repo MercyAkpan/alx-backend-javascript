@@ -11,10 +11,6 @@ const startServer = () => {
     res.end('Hello Holberton School!');
   });
   server.listen(1245);
-}
-
-if (require.main === module) {
-  startServer();
-}
-
+};
+startServer();
 module.exports = startServer;
