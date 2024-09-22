@@ -2,15 +2,16 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
-// eslint-disable-next-line no-undef
-const http = require("http");
+const { createServer } = require("http");
 
-const startServer = () => {
-  const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello Holberton School!');
-  });
-  server.listen(1245);
-};
-startServer();
-module.exports = startServer;
+// Create the server
+const app = createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello Holberton School!');
+});
+
+// Listen on port 1245
+app.listen(1245);
+
+// Export the app
+module.exports = app;
